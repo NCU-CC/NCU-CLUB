@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\classes-441d37982986efc9d590311ce603362097ee1a36.jar"
+        jar="F:\Evan\Android\NCUClub\app\build\intermediates\exploded-aar\com.nhaarman.listviewanimations\lib-manipulation\3.1.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="5660e4bf78904137e90e62a5d4cc2e987258f02c"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-be7da87ecac836572231f4f2eaeaf7e9ba28dca5.jar"
+        jar="E:\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\classes-1242589612f5eed0e9749bcf01fbcd0a8cc4356b.jar"
+        jar="F:\Evan\Android\NCUClub\app\build\intermediates\exploded-aar\com.nhaarman.listviewanimations\lib-core-slh\3.1.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="49223278ec2ede1d05d00868c5ce3e077b4016f8"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\classes-f385d30e33a1783bbab93710ab51bec315e5ed1e.jar"
+        jar="F:\Evan\Android\NCUClub\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\classes-e26daeef6002b0d46739bd8cd9bf152928a21140.jar"
+        jar="F:\Evan\Android\NCUClub\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\classes-d6f1464d990ff2ca4a35f6b1f60d0c0bab3e5550.jar"
+        jar="F:\Evan\Android\NCUClub\app\build\intermediates\exploded-aar\com.nhaarman.listviewanimations\lib-core\3.1.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="acf66033b1418ccf9e15c8e77750981e4809c4ea"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\library-2.4.0-510a74ae7a99ec1c5e4ac383199c5d9dad825d64.jar"
+        jar="C:\Users\Evan\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb"/>
+    <item
+        dex="F:\Evan\Android\NCUClub\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-4855d15162a7a76d813418e7023a919f14c31155.jar"
+        jar="F:\Evan\Android\NCUClub\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
+
+</pre-dex-items>
