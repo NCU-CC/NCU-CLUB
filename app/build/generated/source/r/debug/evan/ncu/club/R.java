@@ -1316,13 +1316,18 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020030;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020031;
         public static final int abc_textfield_search_material=0x7f020032;
-        public static final int card_background_white=0x7f020033;
-        public static final int drawer_shadow=0x7f020034;
-        public static final int ic_drawer=0x7f020035;
-        public static final int ic_launcher=0x7f020036;
-        public static final int listselector=0x7f020037;
+        public static final int card_background_green=0x7f020033;
+        public static final int card_background_white=0x7f020034;
+        public static final int drawer_shadow=0x7f020035;
+        public static final int ic_add_24px=0x7f020036;
+        public static final int ic_add_black_36dp=0x7f020037;
+        public static final int ic_add_circle_black_48dp=0x7f020038;
+        public static final int ic_drawer=0x7f020039;
+        public static final int ic_launcher=0x7f02003a;
+        public static final int listselector=0x7f02003b;
     }
     public static final class id {
+        public static final int Addbutton=0x7f08004a;
         public static final int LinearLayout1=0x7f080047;
         public static final int action_bar=0x7f080033;
         public static final int action_bar_activity_content=0x7f080017;
@@ -1363,11 +1368,11 @@ containing a value of this type.
         public static final int icon=0x7f080028;
         public static final int ifRoom=0x7f08000e;
         public static final int image=0x7f080025;
-        public static final int item_Date=0x7f08004a;
+        public static final int item_Date=0x7f08004b;
         public static final int item_Title=0x7f080049;
         public static final int listMode=0x7f080001;
         public static final int list_item=0x7f080027;
-        public static final int m_ListView=0x7f08004b;
+        public static final int m_ListView=0x7f08004c;
         public static final int middle=0x7f08000b;
         public static final int never=0x7f08000d;
         public static final int none=0x7f080003;
