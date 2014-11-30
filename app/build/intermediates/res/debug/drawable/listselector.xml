@@ -10,4 +10,4 @@
         android:drawable="@color/green" />
     <item android:state_enabled="true"
         android:state_checked="true" android:drawable="@color/orange" />
-</selector><!-- From: file:/F:/Evan/Android/NCUClub/app/src/main/res/drawable/listselector.xml -->
+</selector><!-- From: file:/E:/Evan/Android/Android%20Studio/NCUClub/app/src/main/res/drawable/listselector.xml -->

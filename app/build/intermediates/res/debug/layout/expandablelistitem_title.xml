@@ -23,7 +23,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_toLeftOf="@+id/Addbutton"
-                android:layout_toStartOf="@+id/Addbutton" />
+                android:layout_toStartOf="@+id/Addbutton"/>
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -45,4 +45,4 @@
             android:layout_gravity="start" />
     </LinearLayout>
 
-</LinearLayout><!-- From: file:/F:/Evan/Android/NCUClub/app/src/main/res/layout/expandablelistitem_title.xml -->
+</LinearLayout><!-- From: file:/E:/Evan/Android/Android%20Studio/NCUClub/app/src/main/res/layout/expandablelistitem_title.xml -->

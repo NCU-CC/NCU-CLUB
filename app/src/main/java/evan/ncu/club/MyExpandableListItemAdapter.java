@@ -4,23 +4,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-//import com.nhaarman.listviewanimations.itemmanipulation.expandablelistitem.ExpandableListItemAdapter;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+//import com.nhaarman.listviewanimations.itemmanipulation.expandablelistitem.ExpandableListItemAdapter;
 
 /**
  * Created by Evany on 2014/11/2.
@@ -29,7 +27,6 @@ public class MyExpandableListItemAdapter extends
         ExpandableListItemAdapter<ListData> {
     private final Context mContext;
     private final BitmapCache mMemoryCache;
-    private int mActionViewResId;
     /**
      * Creates a new ExpandableListItemAdapter with the specified list, or
      * an empty list if items == null.
@@ -42,6 +39,7 @@ public class MyExpandableListItemAdapter extends
                 R.id.expandablelistitem_card_content, items);
         mContext = context;
         mMemoryCache = new BitmapCache();
+        //setActionViewResId(R.id.expandablelistitem_card_title);
 
     }
 

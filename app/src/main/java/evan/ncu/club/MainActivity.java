@@ -126,7 +126,9 @@ public class MainActivity extends ActionBarActivity{
 
             mAnimAdapter.setAbsListView(mDrawerListView);
             assert mAnimAdapter.getViewAnimator() != null;
-            mAnimAdapter.getViewAnimator().setInitialDelayMillis(INITIAL_DELAY_MILLIS);
+            mAnimAdapter.getViewAnimator().setInitialDelayMillis(0);
+            mAnimAdapter.getViewAnimator().setAnimationDurationMillis(250);
+
             mDrawerListView.setAdapter(mAnimAdapter);
             if (mCurrentSelectedPosition >= 0) {
                 mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);

@@ -23,7 +23,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_toLeftOf="@+id/Addbutton"
-                android:layout_toStartOf="@+id/Addbutton" />
+                android:layout_toStartOf="@+id/Addbutton"/>
 
             <Button
                 style="?android:attr/buttonStyleSmall"

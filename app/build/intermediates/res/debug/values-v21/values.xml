@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/F:/Evan/Android/NCUClub/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/E:/Evan/Android/Android%20Studio/NCUClub/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="AppTheme.Base">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@color/accent_material_light</item>
     </style>
-    <!-- From: file:/F:/Evan/Android/NCUClub/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values-v21/values.xml -->
+    <!-- From: file:/E:/Evan/Android/Android%20Studio/NCUClub/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values-v21/values.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>

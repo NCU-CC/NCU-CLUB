@@ -4,7 +4,6 @@ package evan.ncu.club;
  * Created by Evan on 2014/11/26.
  */
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -165,7 +164,7 @@ public abstract class ExpandableListItemAdapter<T> extends ArrayAdapter<T> imple
             if (mActionViewResId == 0) {
                 view.setOnClickListener(new TitleViewOnClickListener(viewHolder.contentParent));
             } else {
-                view.findViewById(mActionViewResId).setOnClickListener(new TitleViewOnClickListener(viewHolder.contentParent));
+               view.findViewById(mActionViewResId).setOnClickListener(new TitleViewOnClickListener(viewHolder.contentParent));
             }
         }
         viewHolder.titleView = titleView;
