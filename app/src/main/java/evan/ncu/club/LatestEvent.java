@@ -15,7 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
 import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -25,7 +27,10 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class LatestEvent extends Fragment {
     private static final int INITIAL_DELAY_MILLIS = 500;
@@ -98,7 +103,23 @@ public class LatestEvent extends Fragment {
                             String time = jsonData.getString("start");
                             String club = jsonData.getString("club");
                             String place = jsonData.getString("place");
-                            ListData listData = new ListData(club+"-"+name, place, time, content);
+
+                            Date date;
+                            SimpleDateFormat simple = new java.text.SimpleDateFormat();
+                            simple.applyPattern("yyyy-MM-dd HH:mm");
+                            date = simple.parse(time);
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTime(date);
+                            if(calendar.get(Calendar.HOUR_OF_DAY) == 0) {
+                                simple.applyPattern("yyyy-MM-dd");
+                                time = simple.format(date);
+                            }
+                            ListData listData;
+                            if(club!="null") {
+                                listData = new ListData(club + "-" + name, place, time, content);
+                            }else{
+                                listData = new ListData(name, place, time, content);
+                            }
                             itemsArray.add(listData);
                         }
                     }

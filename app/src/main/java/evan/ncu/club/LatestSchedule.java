@@ -15,7 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
 import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -24,7 +26,10 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LatestSchedule extends Fragment {
 
@@ -96,7 +101,18 @@ public class LatestSchedule extends Fragment {
                             String name = jsonData.getString("title");
                             String content = jsonData.getString("content");
                             String time = jsonData.getString("time");
-                            ListData listData = new ListData(name, time, content);
+                            String link = jsonData.getString("attachment");
+                            Date date;
+                            SimpleDateFormat simple = new java.text.SimpleDateFormat();
+                            simple.applyPattern("yyyy-MM-dd HH:mm");
+                            date = simple.parse(time);
+                            simple.applyPattern("yyyy-MM-dd");
+                            time = simple.format(date);
+                            ListData listData;
+                            if(link!="null")
+                                listData = new ListData(name, time, content +"\n"+link);
+                            else
+                                listData = new ListData(name, time, content);
                             itemsArray.add(listData);
                         }
                     }
