@@ -183,11 +183,12 @@ public abstract class ExpandableListItemAdapter<T> extends ArrayAdapter<T> imple
         layoutParams.height = LayoutParams.WRAP_CONTENT;
         viewHolder.contentParent.setLayoutParams(layoutParams);
 
-//        if(position%2 != 0)
-//            updateBackgroundResourceWithRetainedPadding(view, R.drawable.card_background_green);
-//        else{
-//            updateBackgroundResourceWithRetainedPadding(view, R.drawable.card_background_white);
-//       }
+        //To display different color in listview
+        if(position%2 != 0)
+            updateBackgroundResourceWithRetainedPadding(view, R.drawable.card_background_green);
+        else{
+            updateBackgroundResourceWithRetainedPadding(view, R.drawable.card_background_white);
+       }
 
         return view;
     }
