@@ -58,7 +58,7 @@ public class MyExpandableListItemAdapter extends
         tv.setTextSize(16);
 
         tv = (TextView) v.findViewById(R.id.item_Date);
-        tv.setText(getItem(position).time);
+        tv.setText(getItem(position).time_parsed);
         tv.setTextColor(Color.BLACK);
         tv.setAlpha(0.54f);
         tv.setTextSize(14);
@@ -111,6 +111,7 @@ public class MyExpandableListItemAdapter extends
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+
         Date date = df.parse(time);
         cal.setTime(date);
         Intent intent = new Intent(Intent.ACTION_EDIT);

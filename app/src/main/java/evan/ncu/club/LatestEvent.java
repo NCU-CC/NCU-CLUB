@@ -103,7 +103,7 @@ public class LatestEvent extends Fragment {
                             String time = jsonData.getString("start");
                             String club = jsonData.getString("club");
                             String place = jsonData.getString("place");
-
+                            String time_parsed = time;
                             Date date;
                             SimpleDateFormat simple = new java.text.SimpleDateFormat();
                             simple.applyPattern("yyyy-MM-dd HH:mm");
@@ -112,13 +112,13 @@ public class LatestEvent extends Fragment {
                             calendar.setTime(date);
                             if(calendar.get(Calendar.HOUR_OF_DAY) == 0) {
                                 simple.applyPattern("yyyy-MM-dd");
-                                time = simple.format(date);
+                                time_parsed = simple.format(date);
                             }
                             ListData listData;
                             if(club!="null") {
-                                listData = new ListData(club + "-" + name, place, time, content);
+                                listData = new ListData(club + "-" + name, place, time, content, time_parsed);
                             }else{
-                                listData = new ListData(name, place, time, content);
+                                listData = new ListData(name, place, time, content, time_parsed);
                             }
                             itemsArray.add(listData);
                         }

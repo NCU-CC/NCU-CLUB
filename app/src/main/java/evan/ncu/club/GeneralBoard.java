@@ -104,17 +104,18 @@ public class GeneralBoard extends Fragment {
                             String content = jsonData.getString("content");
                             String time = jsonData.getString("time");
                             String link = jsonData.getString("attachment");
+                            String time_parsed;
                             Date date;
                             SimpleDateFormat simple = new java.text.SimpleDateFormat();
                             simple.applyPattern("yyyy-MM-dd HH:mm");
                             date = simple.parse(time);
                             simple.applyPattern("yyyy-MM-dd");
-                            time = simple.format(date);
+                            time_parsed = simple.format(date);
                             ListData listData;
                             if(link!="null")
-                                listData = new ListData(name, time, content +"\n"+link);
+                                listData = new ListData(name, time, content +"\n"+link, time_parsed);
                             else
-                                listData = new ListData(name, time, content);
+                                listData = new ListData(name, time, content, time_parsed);
                             itemsArray.add(listData);
                         }
                     }

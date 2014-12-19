@@ -15,3 +15,8 @@ Fix issues
 - link of attachment
 - null club name
 - redundant time format
+--------
+Version 1.4
+
+Fix issues
+- bug of adding new calendar event
