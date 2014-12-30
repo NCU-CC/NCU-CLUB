@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
 
@@ -27,6 +28,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -66,7 +68,7 @@ public class GeneralBoard extends Fragment {
                         Context.CONNECTIVITY_SERVICE);
         final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
         private boolean isNetwork = true;
-
+        private boolean serverStatus = true;
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(getActivity());
@@ -99,30 +101,36 @@ public class GeneralBoard extends Fragment {
                         JSONArray jsonArray = new JSONArray(result);
 
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonData = jsonArray.getJSONObject(i);
-                            String name = jsonData.getString("title");
-                            String content = jsonData.getString("content");
-                            String time = jsonData.getString("time");
-                            String link = jsonData.getString("attachment");
-                            String time_parsed;
-                            Date date;
-                            SimpleDateFormat simple = new java.text.SimpleDateFormat();
-                            simple.applyPattern("yyyy-MM-dd HH:mm");
-                            date = simple.parse(time);
-                            simple.applyPattern("yyyy-MM-dd");
-                            time_parsed = simple.format(date);
-                            ListData listData;
-                            if(link!="null")
-                                listData = new ListData(name, time, content +"\n"+link, time_parsed);
-                            else
-                                listData = new ListData(name, time, content, time_parsed);
-                            itemsArray.add(listData);
+                            try {
+                                JSONObject jsonData = jsonArray.getJSONObject(i);
+                                String name = jsonData.getString("title");
+                                String content = jsonData.getString("content");
+                                String time = jsonData.getString("time");
+                                String link = jsonData.getString("attachment");
+                                String time_parsed;
+                                Date date;
+                                SimpleDateFormat simple = new java.text.SimpleDateFormat();
+                                simple.applyPattern("yyyy-MM-dd HH:mm");
+                                date = simple.parse(time);
+                                simple.applyPattern("yyyy-MM-dd");
+                                time_parsed = simple.format(date);
+                                ListData listData;
+                                if (link != "null")
+                                    listData = new ListData(name, time, content + "\n" + link, time_parsed);
+                                else
+                                    listData = new ListData(name, time, content, time_parsed);
+                                itemsArray.add(listData);
+                            }
+                            catch (JSONException je) {
+                                Log.e("Debug", je.toString());
+                            }
                         }
                     }
 
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    serverStatus = false;
                 } finally {
                     client.getConnectionManager().shutdown();
                 }
@@ -141,6 +149,9 @@ public class GeneralBoard extends Fragment {
                 MyAlertDialog.setTitle("錯誤~");
                 MyAlertDialog.setMessage("需要網際網路連線");
                 MyAlertDialog.show();
+            }
+            if(!serverStatus){
+                Toast.makeText(getActivity(), "無法與伺服器連線", Toast.LENGTH_SHORT).show();
             }
             listAdapter = new MyExpandableListItemAdapter(
                     getActivity(), itemsArray);

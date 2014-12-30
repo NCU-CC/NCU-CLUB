@@ -20,3 +20,8 @@ Version 1.4
 
 Fix issues
 - bug of adding new calendar event
+
+--------
+Version 1.5
+
+Fix bugs

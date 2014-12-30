@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
 
@@ -25,6 +26,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -38,7 +40,6 @@ public class LatestEvent extends Fragment {
     public MyExpandableListItemAdapter listAdapter;
     public AlphaInAnimationAdapter alphaInAnimationAdapter;
     public ArrayList<ListData> itemsArray;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class LatestEvent extends Fragment {
                         Context.CONNECTIVITY_SERVICE);
         final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
         private boolean isNetwork = true;
-
+        private boolean serverStatus = true;
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(getActivity());
@@ -81,7 +82,6 @@ public class LatestEvent extends Fragment {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-
             if (activeNetwork != null && activeNetwork.isConnected()) {
                 HttpClient client = new DefaultHttpClient();
                 String result = "";
@@ -97,36 +97,44 @@ public class LatestEvent extends Fragment {
                         JSONArray jsonArray = new JSONArray(result);
 
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonData = jsonArray.getJSONObject(i);
-                            String name = jsonData.getString("name");
-                            String content = jsonData.getString("content");
-                            String time = jsonData.getString("start");
-                            String club = jsonData.getString("club");
-                            String place = jsonData.getString("place");
-                            String time_parsed = time;
-                            Date date;
-                            SimpleDateFormat simple = new java.text.SimpleDateFormat();
-                            simple.applyPattern("yyyy-MM-dd HH:mm");
-                            date = simple.parse(time);
-                            Calendar calendar = Calendar.getInstance();
-                            calendar.setTime(date);
-                            if(calendar.get(Calendar.HOUR_OF_DAY) == 0) {
-                                simple.applyPattern("yyyy-MM-dd");
-                                time_parsed = simple.format(date);
+
+                            try {
+                                JSONObject jsonData = jsonArray.getJSONObject(i);
+                                String name = jsonData.getString("name");
+                                String content = jsonData.getString("content");
+                                String time = jsonData.getString("start");
+                                String club = jsonData.getString("club");
+                                String place = jsonData.getString("place");
+                                String time_parsed = time;
+                                Date date;
+                                SimpleDateFormat simple = new java.text.SimpleDateFormat();
+                                simple.applyPattern("yyyy-MM-dd HH:mm");
+                                date = simple.parse(time);
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.setTime(date);
+                                if (calendar.get(Calendar.HOUR_OF_DAY) == 0) {
+                                    simple.applyPattern("yyyy-MM-dd");
+                                    time_parsed = simple.format(date);
+                                }
+                                ListData listData;
+                                if (club != "null") {
+                                    listData = new ListData(club + "-" + name, place, time, content, time_parsed);
+                                } else {
+                                    listData = new ListData(name, place, time, content, time_parsed);
+                                }
+                                itemsArray.add(listData);
                             }
-                            ListData listData;
-                            if(club!="null") {
-                                listData = new ListData(club + "-" + name, place, time, content, time_parsed);
-                            }else{
-                                listData = new ListData(name, place, time, content, time_parsed);
+                            catch (JSONException je) {
+                                    Log.e("Debug", je.toString());
                             }
-                            itemsArray.add(listData);
                         }
                     }
 
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.e("Debug", e.toString());
+                    serverStatus = false;
                 } finally {
                     client.getConnectionManager().shutdown();
                 }
@@ -145,6 +153,9 @@ public class LatestEvent extends Fragment {
                 MyAlertDialog.setTitle("錯誤~");
                 MyAlertDialog.setMessage("需要網際網路連線");
                 MyAlertDialog.show();
+            }
+            if(!serverStatus){
+                Toast.makeText(getActivity(), "無法與伺服器連線", Toast.LENGTH_SHORT).show();
             }
             listAdapter = new MyExpandableListItemAdapter(
                     getActivity(), itemsArray);
