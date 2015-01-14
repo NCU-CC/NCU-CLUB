@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">NCUClub</string>
+    <string name="app_name">中大社團活動</string>
     <string name="title_section1">最新活動</string>
     <string name="title_section2">一般公告</string>
     <string name="title_section3">組務公告</string>

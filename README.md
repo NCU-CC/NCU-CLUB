@@ -26,3 +26,8 @@ Fix issues
 Version 1.5
 
 Fix bugs
+
+--------
+Version 1.6
+
+Change icon and app name
