@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -86,7 +87,8 @@ public class LatestEvent extends Fragment {
                 HttpClient client = new DefaultHttpClient();
                 String result = "";
                 try {
-                    HttpGet get = new HttpGet("http://140.115.3.97/activity/v2/activity?size=40");
+                    HttpGet get = new HttpGet("https://api.cc.ncu.edu.tw/activity/v1/activities?size=40");
+                    get.addHeader("X-NCU-API-TOKEN", getString(R.string.ncu_api_token));
 
                     HttpResponse response = client.execute(get);
 

@@ -90,7 +90,8 @@ public class GeneralBoard extends Fragment {
                 HttpClient client = new DefaultHttpClient();
                 String result = "";
                 try {
-                    HttpGet get = new HttpGet("http://140.115.3.97/activity/v2/announce/common?size=40");
+                    HttpGet get = new HttpGet("https://api.cc.ncu.edu.tw/activity/v1/announces/?type=common&size=40");
+                    get.addHeader("X-NCU-API-TOKEN", getString(R.string.ncu_api_token));
 
                     HttpResponse response = client.execute(get);
 
@@ -98,6 +99,7 @@ public class GeneralBoard extends Fragment {
 
                     if (resEntity != null) {
                         result = EntityUtils.toString(resEntity);
+                        Log.w("result", result);
                         JSONArray jsonArray = new JSONArray(result);
 
                         for (int i = 0; i < jsonArray.length(); i++) {

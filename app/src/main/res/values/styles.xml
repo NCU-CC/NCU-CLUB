@@ -6,7 +6,7 @@
 
     <style name="AppTheme.Base" parent="Theme.AppCompat">
         <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
 
         <!-- Actionbar color -->
         <item name="colorPrimary">@color/accent_material_dark</item>
