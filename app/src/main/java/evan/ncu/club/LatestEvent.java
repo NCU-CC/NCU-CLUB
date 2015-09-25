@@ -111,12 +111,17 @@ public class LatestEvent extends Fragment {
                                 Date date;
                                 SimpleDateFormat simple = new java.text.SimpleDateFormat();
                                 simple.applyPattern("yyyy-MM-dd HH:mm");
-                                date = simple.parse(time);
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.setTime(date);
-                                if (calendar.get(Calendar.HOUR_OF_DAY) == 0) {
-                                    simple.applyPattern("yyyy-MM-dd");
-                                    time_parsed = simple.format(date);
+                                if(time != "null") {
+                                    date = simple.parse(time);
+                                    Calendar calendar = Calendar.getInstance();
+                                    calendar.setTime(date);
+                                    if (calendar.get(Calendar.HOUR_OF_DAY) == 0) {
+                                        simple.applyPattern("yyyy-MM-dd");
+                                        time_parsed = simple.format(date);
+                                    }
+                                }else{
+                                    time = "無日期";
+                                    time_parsed = "無日期";
                                 }
                                 ListData listData;
                                 if (club != "null") {
