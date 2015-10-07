@@ -34,3 +34,8 @@ Change icon and app name
 Version 1.7
 
 update api client
+--------
+
+Version 1.8
+
+fix null problem of start column 
