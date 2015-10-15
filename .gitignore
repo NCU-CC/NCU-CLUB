@@ -28,3 +28,13 @@ proguard/
 
 # api token file
 auth.xml
+
+# Android Studio
+*.iml
+.idea
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# OSX files
+.DS_Store

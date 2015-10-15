@@ -39,3 +39,9 @@ update api client
 Version 1.8
 
 fix null problem of start column 
+--------
+
+Version 1.9
+
+Update to SDK 23
+Using HTTPUrlConnection instead of apache httpClient

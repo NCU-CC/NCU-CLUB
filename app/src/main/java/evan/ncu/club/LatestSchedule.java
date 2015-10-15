@@ -18,17 +18,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -85,18 +82,29 @@ public class LatestSchedule extends Fragment {
         protected Void doInBackground(Void... arg0) {
 
             if (activeNetwork != null && activeNetwork.isConnected()) {
-                HttpClient client = new DefaultHttpClient();
                 String result = "";
                 try {
-                    HttpGet get = new HttpGet("https://api.cc.ncu.edu.tw/activity/v1/announces?type=group&size=40");
-                    get.addHeader("X-NCU-API-TOKEN", getString(R.string.ncu_api_token));
 
-                    HttpResponse response = client.execute(get);
+                    String url = "https://api.cc.ncu.edu.tw/activity/v1/announces?type=group&size=40";
+                    URL myURL = new URL(url);
+                    HttpURLConnection myURLConnection = (HttpURLConnection)myURL.openConnection();
+                    myURLConnection.setRequestMethod("GET");
+                    myURLConnection.setRequestProperty("X-NCU-API-TOKEN", getString(R.string.ncu_api_token));
+                    myURLConnection.setUseCaches(false);
+                    myURLConnection.setDoInput(true);
+                    myURLConnection.connect();
 
-                    HttpEntity resEntity = response.getEntity();
+                    int response = myURLConnection.getResponseCode();
+                    BufferedReader r = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
+                    StringBuilder total = new StringBuilder();
+                    String line;
+                    while ((line = r.readLine()) != null) {
+                        total.append(line);
+                    }
+                    result = total.toString();
 
-                    if (resEntity != null) {
-                        result = EntityUtils.toString(resEntity);
+                    if (response == 200) {
+
                         JSONArray jsonArray = new JSONArray(result);
 
                         for (int i = 0; i < jsonArray.length(); i++) {
@@ -130,10 +138,7 @@ public class LatestSchedule extends Fragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                     serverStatus = false;
-                } finally {
-                    client.getConnectionManager().shutdown();
                 }
-
             } else {
                 Log.e("Debug", "No network");
                 isNetwork = false;
