@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "evan.ncu.club"
         minSdkVersion 15
-        targetSdkVersion 22
-        versionCode 6
-        versionName "1.7"
+        targetSdkVersion 23
+        versionCode 8
+        versionName "1.9"
     }
 
     buildTypes {
